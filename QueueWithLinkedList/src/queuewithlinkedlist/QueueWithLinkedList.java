@@ -22,6 +22,11 @@ public class QueueWithLinkedList {
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.dequeue());
         queue.printQueue();
         System.out.println("size: " + queue.size());
     }

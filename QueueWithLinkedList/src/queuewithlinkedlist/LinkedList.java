@@ -42,20 +42,27 @@ public class LinkedList {
 //        }
 //        number = previousNode.getNextNode().getNumber();
 //        previousNode.setNextNode(null);
-        if(!isEmpty()){
+        if(head.getNextNode() != null){
             Node current = head.getNextNode();
             number = current.getNumber();
+
             head.setNextNode(current.getNextNode());
+            size--;
+        }else{
+            System.out.print("(garbage) ");
         }
-        size--;
         return number;
   
     }
     public void printNodes(){
-        Node current = head.getNextNode();
-        while(current != null){
-            System.out.println(current);
-            current = current.getNextNode();
+        if(isEmpty()){
+            System.out.println("No data found");
+        }else{
+            Node current = head.getNextNode();
+            while(current != null){
+                System.out.println(current);
+                current = current.getNextNode();
+            }
         }
     }
     
