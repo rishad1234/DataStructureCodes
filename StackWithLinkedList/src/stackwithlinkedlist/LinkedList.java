@@ -37,13 +37,14 @@ public class LinkedList {
         while(current != null){
             current = current.getNextNode();
             if(current != null){
-                number = current.getNumber();
+                previousNode = previousNode.getNextNode();
             }
-            previousNode = previousNode.getNextNode();
         }
-        previousNode = null;
+        number = previousNode.getNextNode().getNumber();
+        previousNode.setNextNode(null);
         size--;
         return number;
+  
     }
     public void printNodes(){
         Node current = head.getNextNode();
