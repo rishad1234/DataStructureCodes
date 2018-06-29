@@ -26,7 +26,7 @@ public class InfixToPostfix {
                 }
 //                if(!stack.isEmpty() && stack.peek() != '('){
 //                    return null;
-//                }
+//                }unnecessary 
                 if(!stack.isEmpty()){
                     stack.pop();
                 }
