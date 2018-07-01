@@ -15,11 +15,11 @@ public class StackWithLinkedList {
         stack.push(20);
         stack.push(12);
         stack.printStack();
-        System.out.println(stack.list.getSize());
+        System.out.println(stack.getSize());
         System.out.println("poping");
         System.out.println(stack.pop());
         System.out.println(stack.pop());
-        System.out.println(stack.list.getSize());
+        System.out.println(stack.getSize());
         stack.printStack();
     }
     

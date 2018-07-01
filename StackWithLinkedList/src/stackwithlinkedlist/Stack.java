@@ -23,4 +23,8 @@ public class Stack {
     public void printStack(){
         list.printNodes();
     } 
+    
+    public int getSize(){
+        return list.getSize();
+    }
 }
