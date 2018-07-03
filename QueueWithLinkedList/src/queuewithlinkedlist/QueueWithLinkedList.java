@@ -13,10 +13,9 @@ public class QueueWithLinkedList {
         queue.enqueue(454);
         queue.enqueue(33);
         queue.enqueue(21);
-        
-        
         queue.printQueue();
         System.out.println("size: " + queue.size());
+        
         System.out.println("dequeue check:");
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
@@ -24,9 +23,22 @@ public class QueueWithLinkedList {
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        queue.printQueue();
+        System.out.println("size: " + queue.size());
+        
+        queue.enqueue(454);
+        queue.enqueue(33);
+        queue.enqueue(21);
+        queue.printQueue();
+        System.out.println("size: " + queue.size());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
         queue.printQueue();
         System.out.println("size: " + queue.size());
     }
