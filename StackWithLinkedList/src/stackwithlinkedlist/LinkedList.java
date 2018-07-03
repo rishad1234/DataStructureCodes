@@ -40,9 +40,17 @@ public class LinkedList {
                 previousNode = previousNode.getNextNode();
             }
         }
-        number = previousNode.getNextNode().getNumber();
-        previousNode.setNextNode(null);
         size--;
+        if(previousNode.getNextNode() != null){
+            number = previousNode.getNextNode().getNumber();
+            previousNode.setNextNode(null);
+            
+        }
+        if(head.getNextNode() == null){
+            size = 0;
+        }
+        //previousNode.setNextNode(null);
+        //size--;
         return number;
   
     }
