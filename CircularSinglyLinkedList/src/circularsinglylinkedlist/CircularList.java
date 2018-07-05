@@ -34,8 +34,24 @@ public class CircularList {
                 previous.setNext(node);
                 node.setNext(current);
             }
-            
         }
+    }
+    public int delete(int number){
+        Node current = head.getNext();
+        Node previous = head;
+        if(head.getNext() == tail){
+            System.out.println("list empty");
+            return Integer.MIN_VALUE;
+        }
+        while(current != tail.getNext()){
+            if(current.getNumber() == number){
+                previous.setNext(current.getNext());
+            }else{
+                current = current.getNext();
+                previous = previous.getNext();
+            }
+        }
+        return number;
     }
     
     public void printNodes(){
