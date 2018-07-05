@@ -59,7 +59,7 @@ public class CircularList {
         if(temp == null){
             System.out.println("no node is found");
         }
-        while(temp != tail.getNext()){
+        while(temp != tail.getNext().getNext()){
             System.out.println(temp);
             temp = temp.getNext();
         }
