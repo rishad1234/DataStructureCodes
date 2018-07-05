@@ -29,18 +29,19 @@ public class CircularList {
             if(previous == tail){
                 previous.setNext(node);
                 tail = node;
+                tail.setNext(head);
             }else{
                 previous.setNext(node);
                 node.setNext(current);
             }
         }
     }
-    public int delete(int number){
+    public void delete(int number){
         Node current = head.getNext();
         Node previous = head;
         if(head.getNext() == null){
             System.out.println("list empty");
-            return Integer.MIN_VALUE;
+            return;
         }
         while(current != tail.getNext()){
             if(current.getNumber() == number){
@@ -51,15 +52,15 @@ public class CircularList {
                 previous = previous.getNext();
             }
         }
-        return number;
     }
     
     public void printNodes(){
         Node temp = head.getNext();
         if(temp == null){
             System.out.println("no node is found");
+            return;
         }
-        while(temp != tail.getNext().getNext()){
+        while(temp != tail.getNext() && temp != null){
             System.out.println(temp);
             temp = temp.getNext();
         }
