@@ -4,6 +4,7 @@ package queuewithlinkedlist;
 public class LinkedList {
     private Node head;
     private int size;
+    private Node tail;
 
     public LinkedList() {
         head = new Node(Integer.MIN_VALUE);
@@ -18,6 +19,7 @@ public class LinkedList {
         Node node = new Node(number);
         if(head.getNextNode() == null){
             head.setNextNode(node);
+            tail = node;
         }else{
             Node previousNode = head;
             Node current = head.getNextNode();
