@@ -37,6 +37,9 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
+    public boolean isNextNull(){
+        return next == null;
+    }
 
     @Override
     public String toString() {

@@ -9,7 +9,7 @@ public class CircularList {
 
     public CircularList() {
         this.head = new Node(Integer.MIN_VALUE);
-        this.tail = new Node();
+        //this.tail = new Node();
         this.head.setNext(null);
     }
     
@@ -17,7 +17,7 @@ public class CircularList {
         Node node = new Node(number);
         Node current = head.getNext();
         Node previous = head;
-        if(head.getNext() == null){
+        if(head.isNextNull()){
             head.setNext(node);
             tail = node;
             tail.setNext(head);
@@ -35,11 +35,12 @@ public class CircularList {
                 node.setNext(current);
             }
         }
+        size++;
     }
     public void delete(int number){
         Node current = head.getNext();
         Node previous = head;
-        if(head.getNext() == null){
+        if(head.isNextNull() || size == 0){
             System.out.println("list empty");
             return;
         }
@@ -52,11 +53,16 @@ public class CircularList {
                 previous = previous.getNext();
             }
         }
+        size--;
+        if(size < 0){
+            size = 0;
+            head.setNext(null);
+        }
     }
     
     public void printNodes(){
         Node temp = head.getNext();
-        if(temp == null){
+        if(temp == null || size == 0){
             System.out.println("no node is found");
             return;
         }
@@ -64,6 +70,9 @@ public class CircularList {
             System.out.println(temp);
             temp = temp.getNext();
         }
+    }
+    public int getSize(){
+        return size;
     }
     
 }
