@@ -14,6 +14,13 @@ public class CircularSinglyLinkedList {
 
         list.printNodes();
         
+        System.out.println("After delete: ");
+        
+        list.delete(7);
+        list.delete(1);
+        list.delete(2);
+        list.printNodes();
+        
     }
     
 }
