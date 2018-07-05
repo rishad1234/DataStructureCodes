@@ -27,7 +27,13 @@ public class CircularList {
                 current = current.getNext();
                 previous = previous.getNext();
             }
-            previous.setNext(node);
+            if(previous == tail){
+                previous.setNext(node);
+                tail = node;
+            }else{
+                previous.setNext(node);
+                node.setNext(current);
+            }
             
         }
     }
