@@ -6,6 +6,10 @@ public class Node {
     private Node previous;
     private Node next;
 
+    public Node() {
+    
+    }
+    
     public Node(int number) {
         this.number = number;
     }

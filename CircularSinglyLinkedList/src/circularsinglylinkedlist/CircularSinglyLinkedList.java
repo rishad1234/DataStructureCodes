@@ -9,7 +9,8 @@ public class CircularSinglyLinkedList {
         list.insert(12);
         list.insert(2);
         list.insert(129);
-        
+        list.insert(1123);        
+
         list.printNodes();
         
     }

@@ -9,9 +9,8 @@ public class CircularList {
 
     public CircularList() {
         this.head = new Node(Integer.MIN_VALUE);
-        this.tail = new Node(Integer.MAX_VALUE);
-        this.head.setNext(tail);
-        this.tail.setNext(head);
+        this.tail = new Node();
+        this.head.setNext(null);
         size = 0;
     }
     
@@ -19,22 +18,23 @@ public class CircularList {
         Node node = new Node(number);
         Node current = head.getNext();
         Node previous = head;
-        if(head.getNext() == tail){
+        if(head.getNext() == null){
             head.setNext(node);
-            node.setNext(tail);
+            tail = node;
+            tail.setNext(head);
         }else{
-            while(current != tail && node.getNumber() > current.getNumber()){
+            while(current != tail.getNext() && node.getNumber() > current.getNumber()){
                 current = current.getNext();
                 previous = previous.getNext();
             }
-            node.setNext(current);
             previous.setNext(node);
+            
         }
     }
     
     public void printNodes(){
         Node temp = head.getNext();
-        while(temp != tail){
+        while(temp != tail.getNext()){
             System.out.println(temp);
             temp = temp.getNext();
         }
