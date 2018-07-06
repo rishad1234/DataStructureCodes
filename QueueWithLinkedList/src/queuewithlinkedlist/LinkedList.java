@@ -21,13 +21,8 @@ public class LinkedList {
             head.setNextNode(node);
             tail = node;
         }else{
-            Node previousNode = head;
-            Node current = head.getNextNode();
-            while(current != null){
-                current = current.getNextNode();
-                previousNode = previousNode.getNextNode();
-            }
-            previousNode.setNextNode(node);
+            tail.setNextNode(node);
+            tail = node;
         }
         size++;
     }
@@ -53,11 +48,15 @@ public class LinkedList {
         }else{
             System.out.print("(garbage) ");
         }
+        
+        if(size < 0){
+            size = 0;
+        }
         return number;
   
     }
     public void printNodes(){
-        if(isEmpty()){
+        if(isEmpty() || size == 0){
             System.out.println("No data found");
         }else{
             Node current = head.getNextNode();
