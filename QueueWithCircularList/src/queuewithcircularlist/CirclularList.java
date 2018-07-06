@@ -24,17 +24,35 @@ public class CirclularList {
         size++;
     }
     
-    
+    public int delete(){
+        Node current = head.getNextNode();
+        int number = Integer.MAX_VALUE;
+        if(head.getNextNode() == null || size == 0){
+            System.out.println("No data found");
+        }else if(current != tail.getNextNode()){
+            head = current;
+            number = current.getNumber();
+        }else{
+            head.setNextNode(null);
+        }
+        size--;
+        if(size <= 0){
+            size = 0;
+        }
+        
+        return number;
+    }
     
     public void printNodes(){
         if(head.getNextNode() == null || size == 0){
             System.out.println("No Node found");
-        }
-    
-        Node current = head.getNextNode();
-        while(current != tail.getNextNode()){
-            System.out.println(current);
-            current = current.getNextNode();
+            
+        }else{
+            Node current = head.getNextNode();
+            while(current != tail.getNextNode()){
+                System.out.println(current);
+                current = current.getNextNode();
+            }
         }
     }
     

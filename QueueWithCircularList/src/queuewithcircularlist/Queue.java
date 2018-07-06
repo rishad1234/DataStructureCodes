@@ -14,8 +14,8 @@ public class Queue {
     }
     
     public int dequeue(){
-        //return list.deleteNode();
-        return 1;
+        //list.delete();
+        return list.delete();
     }
 
     public void printQueue(){
