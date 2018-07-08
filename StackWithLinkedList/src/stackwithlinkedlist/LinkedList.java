@@ -4,6 +4,7 @@ package stackwithlinkedlist;
 public class LinkedList {
     private Node head;
     private int size;
+    private Node tail;
 
     public LinkedList() {
         head = new Node(Integer.MIN_VALUE);
@@ -18,14 +19,12 @@ public class LinkedList {
         Node node = new Node(number);
         if(head.getNextNode() == null){
             head.setNextNode(node);
+            tail = node;
+            tail.setNextNode(null);
         }else{
-            Node previousNode = head;
-            Node current = head.getNextNode();
-            while(current != null){
-                current = current.getNextNode();
-                previousNode = previousNode.getNextNode();
-            }
-            previousNode.setNextNode(node);
+            tail.setNextNode(node);
+            tail = node;
+            tail.setNextNode(null);
         }
         size++;
     }
@@ -49,13 +48,15 @@ public class LinkedList {
         if(head.getNextNode() == null){
             size = 0;
         }
-        //previousNode.setNextNode(null);
-        //size--;
         return number;
   
     }
+    
     public void printNodes(){
         Node current = head.getNextNode();
+        if(current == null || size == 0){
+            System.out.println("Stack is empty");
+        }
         while(current != null){
             System.out.println(current);
             current = current.getNextNode();
