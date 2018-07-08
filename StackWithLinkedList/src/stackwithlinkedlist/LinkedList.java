@@ -4,7 +4,7 @@ package stackwithlinkedlist;
 public class LinkedList {
     private Node head;
     private int size;
-    private Node tail;
+
 
     public LinkedList() {
         head = new Node(Integer.MIN_VALUE);
@@ -19,33 +19,28 @@ public class LinkedList {
         Node node = new Node(number);
         if(head.getNextNode() == null){
             head.setNextNode(node);
-            tail = node;
-            tail.setNextNode(null);
         }else{
-            tail.setNextNode(node);
-            tail = node;
-            tail.setNextNode(null);
+            Node temp = head.getNextNode();
+            head.setNextNode(node);
+            node.setNextNode(temp);
         }
         size++;
     }
     
     public int deleteNode(){
-        Node previousNode = head;
-        Node current = head.getNextNode();
-        int number = Integer.MIN_VALUE;
-        while(current != null){
-            current = current.getNextNode();
-            if(current != null){
-                previousNode = previousNode.getNextNode();
+        Node temp = null;
+        int number = Integer.MAX_VALUE;
+        if(head.getNextNode() != null){
+            temp = head.getNextNode();
+            number = temp.getNumber();
+            if(temp.getNextNode() != null){
+                head.setNextNode(temp.getNextNode());
+            }else if(temp.getNextNode() == null){
+                head.setNextNode(null);
             }
         }
-        size--;
-        if(previousNode.getNextNode() != null){
-            number = previousNode.getNextNode().getNumber();
-            previousNode.setNextNode(null);
-            
-        }
-        if(head.getNextNode() == null){
+        size++;
+        if(size <= 0){
             size = 0;
         }
         return number;
