@@ -13,7 +13,7 @@ public class LinkedList {
     }
     
     public boolean isEmpty(){
-        return head == null;
+        return head.getNextNode() == null;
     }
     public void insert(int number){
         Node node = new Node(number);
