@@ -16,7 +16,7 @@ public class InfixToPostfix {
         char[] temp = infix.toCharArray();
         Stack<Character> stack = new Stack<>();
         for(int i = 0; i < temp.length; i++){
-            if(isOperand(temp[i])){
+            if(isOperand(temp[i]) || Character.isLetterOrDigit(temp[i])){
                 postfix += temp[i];
             } else if(temp[i] == '('){
                 stack.push(temp[i]);
@@ -24,9 +24,9 @@ public class InfixToPostfix {
                 while(!stack.isEmpty() && stack.peek() != '('){
                     postfix += stack.pop();
                 }
-//                if(!stack.isEmpty() && stack.peek() != '('){
-//                    return null;
-//                }unnecessary 
+                if(!stack.isEmpty() && stack.peek() != '('){
+                    return null;
+                }//unnecessary 
                 if(!stack.isEmpty()){
                     stack.pop();
                 }
