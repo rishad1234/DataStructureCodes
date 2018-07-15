@@ -95,6 +95,9 @@ public class InfixToPostfix {
             case "+":
                 return num2 + num1;
             case "-":
+                if(num1 < 0){
+                    return num1 - num2;
+                }
                 return num2 - num1;
             case "*":
                 return num2 * num1;
