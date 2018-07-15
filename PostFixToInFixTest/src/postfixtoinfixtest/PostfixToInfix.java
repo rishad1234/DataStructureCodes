@@ -1,20 +1,20 @@
 
 package postfixtoinfixtest;
 
+import java.util.Queue;
 import java.util.Stack;
 
 public class PostfixToInfix {
     private StringBuilder postfix;
     private String infix;
-    private String[] temp;
+    Stack<String> postStack;
 
     public PostfixToInfix(String postfix) {
         this.postfix = new StringBuilder(postfix);
-        temp = new String[postfix.length()];
+        postStack = new Stack<>();
     }
     
     public String toInfix(){
-        //String[] temp = new String[postfix.length()];
         Stack<String> stack = new Stack<>();
         String reversed = new String(postfix.reverse());
         char[] reversedPostfix = reversed.toCharArray();
@@ -22,15 +22,12 @@ public class PostfixToInfix {
         for(char character: reversedPostfix){
             stack.push((character + ""));
         }
-        int i = 0;
         while(!stack.isEmpty()){
-            if(isOperand((stack.peek().toCharArray()[0]))){
-                temp[i] = stack.pop();
-                i++;
+            if(!isOperator(stack.peek())){
+                postStack.push(stack.pop());
             }else {
-                if(isOperator(stack.peek().toCharArray()[0])){
-                    temp[i]=stack.pop();
-                    i = 1;
+                if(isOperator(stack.peek())){
+                    postStack.push(stack.pop());
                     InfixStringMaking();
                 }
             }
@@ -42,17 +39,17 @@ public class PostfixToInfix {
         return ((temp >= 'a' && temp <= 'z') || (temp >= 'A' && temp <= 'Z'));
     }
     
-    public boolean isOperator(char temp){
-        return (temp == '+' || temp == '-' || temp == '*' || temp == '/');
+    public boolean isOperator(String temp){
+        return (temp.equals("+") || temp.equals("-") || temp .equals("*") || temp .equals("/"));
     }
     
     public void InfixStringMaking(){
-        String finalString = "(" + temp[0] + temp[2] + temp[1] + ")";
+        String operator = postStack.pop();
+        String operand2 = postStack.pop();
+        String operand1 = postStack.pop();
+        String finalString = "(" + operand1 + operator + operand2 + ")";
         
-        for(int i = 0; i < 3; i++){
-            temp[i] = "";
-        }
-        temp[0] = finalString;
+        postStack.push(finalString);
         infix = finalString;
         
     }

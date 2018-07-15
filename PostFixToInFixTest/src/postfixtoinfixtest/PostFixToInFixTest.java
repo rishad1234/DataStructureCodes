@@ -15,7 +15,7 @@ public class PostFixToInFixTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PostfixToInfix p = new PostfixToInfix("ab+cd*+");
+        PostfixToInfix p = new PostfixToInfix("ABCD/+*");
         System.out.println(p.toInfix());
     }
     
