@@ -98,7 +98,7 @@ public class InfixToPostfix {
 //                if(num1 < 0){
 //                    return num1 - num2;
 //                } maybe buggy
-                return num1 - num2;
+                return num1 - num2; /// check this line if the ans is not correct
             case "*":
                 return num2 * num1;
             case "/":
