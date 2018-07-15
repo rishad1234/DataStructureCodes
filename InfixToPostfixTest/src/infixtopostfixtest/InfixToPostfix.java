@@ -1,9 +1,7 @@
 
 package infixtopostfixtest;
 
-import java.util.EmptyStackException;
 import java.util.Stack;
-import java.util.StringTokenizer;
 
 public class InfixToPostfix {
     private String infix;
@@ -36,7 +34,7 @@ public class InfixToPostfix {
                     stack.pop();
                 }
             }else if(isOperator(temp[i])){
-                if(!stack.isEmpty() && precedence(temp[i]) <= precedence(stack.peek())){
+                while(!stack.isEmpty() && precedence(temp[i]) <= precedence(stack.peek())){
                     postfix += stack.pop() + " ";
                 }   
                 stack.push(temp[i]);
@@ -103,7 +101,6 @@ public class InfixToPostfix {
             case "/":
                 return num2 / num1;
             case "^":
-                int num = 0;
                 return (int) Math.pow(num1, num2);
             default:
                 return -1;

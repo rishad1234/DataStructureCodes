@@ -16,5 +16,4 @@ public class InfixToPostfixTest {
         System.out.println(p.toPostfix());
         System.out.println(p.evaluatePostFix());
     }
-    
 }
