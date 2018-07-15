@@ -90,7 +90,6 @@ public class InfixToPostfix {
             }
         }
         return stack.pop();
-        //return 1;
     }
     
     private int applyOperator(int num1, int num2, String operator){
@@ -103,6 +102,9 @@ public class InfixToPostfix {
                 return num2 * num1;
             case "/":
                 return num2 / num1;
+            case "^":
+                int num = 0;
+                return (int) Math.pow(num1, num2);
             default:
                 return -1;
         }

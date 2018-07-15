@@ -7,7 +7,7 @@ public class InfixToPostfixTest {
         /*
             its very important to put spaces between the characters
         */
-        InfixToPostfix p = new InfixToPostfix("12 + 2 + 3 * 4");
+        InfixToPostfix p = new InfixToPostfix("1233 + 2 ^ 3 + 3 * 4");
         System.out.println(p.toPostfix());
         System.out.println(p.evaluatePostFix());
     }
