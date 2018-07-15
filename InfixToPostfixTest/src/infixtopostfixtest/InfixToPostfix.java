@@ -1,7 +1,9 @@
 
 package infixtopostfixtest;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class InfixToPostfix {
     private String infix;
@@ -13,56 +15,97 @@ public class InfixToPostfix {
     }
     
     public String toPostfix(){
-        char[] temp = infix.toCharArray();
-        Stack<Character> stack = new Stack<>();
+        String[] temp = infix.split(" ");
+        Stack<String> stack = new Stack<>();
+        for(String t : temp){
+            //t = t.trim();
+        }
         for(int i = 0; i < temp.length; i++){
-            if(isOperand(temp[i]) || Character.isLetterOrDigit(temp[i])){
-                postfix += temp[i];
-            } else if(temp[i] == '('){
+            if(!isOperator(temp[i])){
+                postfix += temp[i] + " ";
+            }else if(temp[i].equals("(")){
                 stack.push(temp[i]);
-            } else if(temp[i] == ')'){
-                while(!stack.isEmpty() && stack.peek() != '('){
-                    postfix += stack.pop();
+            }else if(temp[i].equals(")")){
+                while(!stack.isEmpty() && !stack.peek().equals("(")){
+                    postfix += stack.pop() + " ";
                 }
-                if(!stack.isEmpty() && stack.peek() != '('){
-                    return null;
-                }//unnecessary 
+//                if(!stack.isEmpty() && stack.peek() != '('){
+//                    return null;
+//                }//unnecessary 
                 if(!stack.isEmpty()){
                     stack.pop();
                 }
-            } else if(isOperator(temp[i])){
+            }else if(isOperator(temp[i])){
                 if(!stack.isEmpty() && precedence(temp[i]) <= precedence(stack.peek())){
-                    postfix += stack.pop();
+                    postfix += stack.pop() + " ";
                 }   
                 stack.push(temp[i]);
-             }
-        }
+            }else if(temp[i].equals(" ")){
+                
+            }
             
+        }   
         while(!stack.isEmpty()){
-            postfix += stack.pop();
+            postfix += stack.pop() + " ";
         }
         return postfix;
     }
     
-    public int precedence(char c){
+    public int precedence(String c){
         switch(c){
-            case '+': 
-            case '-':
+            case "+": 
+            case "-":
                 return 1;
-            case '*':
-            case '/':
+            case "*":
+            case "/":
                 return 2;
-            case '^':
+            case "^":
                 return 3;
         }
         return -1;
     }
     
-    public boolean isOperator(char ch){
-        return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^' || ch == '(' || ch == ')');
+    public boolean isOperator(String ch){
+        return (ch.equals("+") || ch.equals("-") || ch.equals("*") || ch.equals("/") || ch.equals("^") || ch.equals("(") || ch.equals(")"));
     }
     
     private boolean isOperand(char ch) {
         return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
     }
+    
+    public int evaluatePostFix(){
+        int result = 0;
+        String[] values = postfix.split(" ");
+//        for(String value : values){
+//            System.out.println(value);
+//        }
+        Stack<Integer> stack = new Stack();
+        for(int i = 0; i < values.length; i++){
+            if(isOperator(values[i])){
+                int num2 = stack.pop();
+                int num1 = stack.pop();
+                stack.push(applyOperator(num1, num2, values[i]));
+            }else{
+                stack.push(Integer.parseInt(values[i]));
+            }
+        }
+        return stack.pop();
+        //return 1;
+    }
+    
+    private int applyOperator(int num1, int num2, String operator){
+        switch (operator){
+            case "+":
+                return num2 + num1;
+            case "-":
+                return num2 - num1;
+            case "*":
+                return num2 * num1;
+            case "/":
+                return num2 / num1;
+            default:
+                return -1;
+        }
+    }
 }
+
