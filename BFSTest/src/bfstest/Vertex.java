@@ -45,6 +45,6 @@ public class Vertex {
 
     @Override
     public String toString() {
-        return "Vertex{" + "vertexName=" + vertexName + ", visited=" + visited + ", adjacent=" + adjacent + '}';
+        return "" + adjacent + "";
     }  
 }

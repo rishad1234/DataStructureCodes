@@ -13,14 +13,15 @@ public class BreathFirstSearch {
 
         while(!queue.isEmpty()){
             Vertex temp = queue.remove();
-            System.out.println(temp);
 
             for(Vertex v : temp.getAdjacent()){
                 if(!v.isVisited()){
+                    System.out.println("Visited: " + v.getVertexName());
                     v.setVisited(true);
                     queue.add(v);
                 }
             }
+//            System.out.println("" + temp.getVertexName());
         }           
     }
 }
