@@ -52,13 +52,37 @@ public class TreeClass {
     
     public void inOrderRecursive(Node root){
         if(root == null){
-            //System.out.println(root.getValue() + ": parent: " + root.getParent());
+            
         }else{
             inOrderRecursive(root.getLeft());
             System.out.println(root.getValue() + ": parent: " + root.getParent());
             inOrderRecursive(root.getRight());
         }
-        
-        
+    }
+    
+    public void preOrderNonRecursive(Node root){
+        Stack<Node> stack = new Stack<>();
+        Node node = root;
+        stack.push(node);
+        while(!stack.isEmpty()){
+            Node temp = stack.pop();
+            System.out.println(temp.getValue() + ": parent: " + temp.getParent());
+            if(temp.getRight() != null){
+                stack.push(temp.getRight());
+            }
+            if(temp.getLeft()!= null){
+                stack.push(temp.getLeft());
+            }
+        }
+    }
+    
+    public void preOrderRecursive(Node root){
+        if(root == null){
+            
+        }else{
+            System.out.println(root.getValue() + ": parent: " + root.getParent());
+            preOrderRecursive(root.getLeft());
+            preOrderRecursive(root.getRight());
+        }
     }
 }
