@@ -103,4 +103,16 @@ public class TreeClass {
             }
         }
     }
+    
+    public void postOrderRecursive(Node root){
+        if(root != null){
+            postOrderRecursive(root.getLeft());
+            postOrderRecursive(root.getRight());
+            System.out.println(root.getValue() + ": parent: " + root.getParent());
+        }
+    }
+    
+    public void insertBST(int value){
+        
+    }
 }
