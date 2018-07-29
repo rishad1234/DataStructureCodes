@@ -24,9 +24,6 @@ public class TreeClass {
             while(node != null){
                 stack.push(node);
                 node = node.getLeft();
-//                if(node != null){
-//                    //node.setParent(stack.peek());
-//                }
             }
         }
         
@@ -35,16 +32,10 @@ public class TreeClass {
             Node temp = node;
             System.out.println(node.getValue() + ": parent: " + node.getParent());
             if(node.getRight() != null){
- 
-                node = node.getRight();
-//                node.setParent(temp);
-                
+                node = node.getRight();  
                 while(node != null){
                     stack.push(node);
                     node = node.getLeft();
-//                    if(node != null){
-//                        //node.setParent(stack.peek());
-//                    }
                 }
             }
         }
@@ -83,6 +74,33 @@ public class TreeClass {
             System.out.println(root.getValue() + ": parent: " + root.getParent());
             preOrderRecursive(root.getLeft());
             preOrderRecursive(root.getRight());
+        }
+    }
+    
+    public void postOrderNonRecursive(Node root){
+        if(root != null){
+            Stack<Node> stack = new Stack<>();
+            Stack<Node> temp = new Stack<>();
+            
+            temp.push(root);
+            Node node = null;
+            
+            while(!temp.isEmpty()){
+                node = temp.pop();
+                stack.push(node);
+                
+                if(node.getLeft() != null){
+                    temp.push(node.getLeft());
+                }
+                if(node.getRight() != null){
+                    temp.push(node.getRight());
+                }
+            }
+            
+            while(!stack.isEmpty()){
+                Node n = stack.pop();
+                System.out.println(n.getValue() + ": parent: " + n.getParent());
+            }
         }
     }
 }

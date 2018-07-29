@@ -24,6 +24,7 @@ public class TreeTest {
 //        tree.inOrderRecursive(node[0]);
 //        tree.preOrderNonRecursive(node[0]);
 //        tree.preOrderRecursive(node[0]);
+        tree.postOrderNonRecursive(node[0]);
     }
     
 }
