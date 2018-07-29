@@ -18,13 +18,22 @@ public class TreeTest {
         node[6].setLeft(node[7]);
         
         TreeClass tree = new TreeClass();
-//        System.out.println("inorder non-recursive: ");
-//        tree.inOrderNonRecursive(node[0]);
-//        System.out.println("inorder recursive: ");
-//        tree.inOrderRecursive(node[0]);
-//        tree.preOrderNonRecursive(node[0]);
-//        tree.preOrderRecursive(node[0]);
-        //tree.postOrderNonRecursive(node[0]);
+        System.out.println("inorder non-recursive: ");
+        tree.inOrderNonRecursive(node[0]);
+        System.out.println("");
+        System.out.println("inorder recursive: ");
+        tree.inOrderRecursive(node[0]);
+        System.out.println("");
+        System.out.println("preorder non-recursive: ");
+        tree.preOrderNonRecursive(node[0]);
+        System.out.println("");
+        System.out.println("preorder recursive: ");
+        tree.preOrderRecursive(node[0]);
+        System.out.println("");
+        System.out.println("postorder non-recursive: ");
+        tree.postOrderNonRecursive(node[0]);
+        System.out.println("");
+        System.out.println("postorder recursive: ");
         tree.postOrderRecursive(node[0]);
     }
     
