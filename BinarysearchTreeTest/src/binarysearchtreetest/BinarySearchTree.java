@@ -29,4 +29,31 @@ public class BinarySearchTree {
             }
         }
     }
+    
+    public void delete(int value){
+        Node temp = root;
+        temp = delete(temp, value);
+    }
+    
+    private Node delete(Node root, int value){
+        if(root == null){
+            return root;
+        }
+        if(value < root.getValue()){
+            root.setLeft(delete(root.getLeft(), value));
+        }else if(value > root.getValue()){
+            root.setRight(delete(root.getRight(), value));
+        }else{
+            if(root.getLeft() == null){
+                return root.getRight();
+            }else if(root.getRight() == null){
+                return root.getLeft();
+            }
+            
+            root.setValue(root.getRight().min());
+            
+            root.setRight(delete(root.getRight(), root.getValue()));
+        }
+        return root; 
+    }
 }
