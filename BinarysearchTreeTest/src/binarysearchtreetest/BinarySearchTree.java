@@ -3,6 +3,16 @@ package binarysearchtreetest;
 
 public class BinarySearchTree {
     private Node root;
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+    
+    
     
     public void insertBST(int value){
         Node node = new Node(value);
@@ -30,9 +40,10 @@ public class BinarySearchTree {
         }
     }
     
-    public void delete(int value){
+    public Node delete(int value){
         Node temp = root;
         temp = delete(temp, value);
+        return temp;
     }
     
     private Node delete(Node root, int value){
@@ -50,10 +61,27 @@ public class BinarySearchTree {
                 return root.getLeft();
             }
             
-            root.setValue(root.getRight().min());
+            root.setValue(min(root.getRight()));
             
             root.setRight(delete(root.getRight(), root.getValue()));
         }
         return root; 
+    }
+    
+    public int min(Node root){
+        Node temp = root;
+        if(temp.getLeft() == null){
+            return temp.getValue();
+        }else{
+            return min(temp.getLeft());
+        }
+    }
+    public int max(Node root){
+        Node temp = root;
+        if(temp.getRight() == null){
+            return temp.getValue();
+        }else{
+            return max(temp.getRight());
+        }
     }
 }
