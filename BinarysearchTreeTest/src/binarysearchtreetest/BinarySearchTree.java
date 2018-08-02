@@ -182,4 +182,21 @@ public class BinarySearchTree {
             }
         }
     }
+    
+    public Node search(int number, Node root){
+        Node node = root;
+        Node foundData = null;
+        while(node != null){
+            if(node.getValue() == number){
+                //System.out.println(node);
+                foundData = node;
+                break;
+            }else if(node.getValue() > number){
+                node = node.getLeft();
+            }else{
+                node = node.getRight();
+            }
+        }
+        return foundData;
+    }
 }

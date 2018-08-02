@@ -11,6 +11,8 @@ public class BinarysearchTreeTest {
         }
         
         btree.postOrderRecursive(btree.getRoot());
+        
+        System.out.println(btree.search(1111, btree.getRoot()));
     }
     
 }
