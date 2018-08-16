@@ -1,18 +1,47 @@
 
 package binarysearchtreetest;
 
+import java.util.Scanner;
+
 public class BinarysearchTreeTest {
 
     public static void main(String[] args) {
-        BinarySearchTree btree = new BinarySearchTree();
+        BinarySearchTree binarytree = new BinarySearchTree();
+    
+        Scanner input = new Scanner(System.in);
+        boolean menu = true;
+        int choice;
         
-        for(int i = 1; i <= 100; i+=1){
-            btree.insertBST(i);
+        while(menu == true){
+            System.out.println("Menu");
+            System.out.println("1.Insert      2.Delete");
+            System.out.println("3.Display     4.Exit");
+            System.out.println("");
+            System.out.println("Enter your choice: ");
+            
+            choice=input.nextInt();
+            
+            switch(choice){
+                case 1:
+                    System.out.println("Enter a number. ");
+                    binarytree.insertBST(input.nextInt());
+                    break;
+                case 2:
+                    System.out.println("Enter the value of the node to delete: ");
+                    int number = input.nextInt();
+                    binarytree.delete(number);
+                    System.out.println("A node has been deleted");
+                    break;
+                case 3:
+                    System.out.println("Printing the values: ");
+                    System.err.println("pre Order: ");
+                    binarytree.preOrderRecursive(binarytree.getRoot());
+                    break;
+                default:
+                    menu = false;
+                    break;
+            }
         }
-        
-        btree.postOrderRecursive(btree.getRoot());
-        
-        System.out.println(btree.search(1111, btree.getRoot()));
     }
     
 }
