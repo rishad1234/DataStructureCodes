@@ -37,6 +37,10 @@ public class BinarysearchTreeTest {
                     System.err.println("pre Order: ");
                     binarytree.preOrderRecursive(binarytree.getRoot());
                     break;
+                case 4:
+                    System.out.println("Enter the value to search: ");
+                    System.out.println("search : " + binarytree.search(input.nextInt(), binarytree.getRoot()));
+                    break;
                 default:
                     menu = false;
                     break;
