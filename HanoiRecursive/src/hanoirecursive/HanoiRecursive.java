@@ -3,7 +3,7 @@ package hanoirecursive;
 public class HanoiRecursive {
 
     public static void main(String[] args) {
-       hanoi(20, 1, 2, 3);
+       hanoi(25, 1, 2, 3);
     }
     
     public static void hanoi(int disk, int i, int j, int k){

@@ -72,7 +72,6 @@ public class InfixToPostfix {
     }
     
     public int evaluatePostFix(){
-        int result = 0;
         String[] values = postfix.split(" ");
 //        for(String value : values){
 //            System.out.println(value);

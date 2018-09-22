@@ -1,9 +1,9 @@
-
+ 
 package circularsinglylinkedlist;
 
 
 public class CircularList {
-    private Node head;
+    private final Node head;
     private int size;
     private Node tail;
 
