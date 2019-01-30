@@ -4,7 +4,7 @@ package bfstest;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BreathFirstSearch {
+public class BreadthFirstSearch {
     
     public void bfs(Vertex root){
         Queue<Vertex> queue = new LinkedList<>();

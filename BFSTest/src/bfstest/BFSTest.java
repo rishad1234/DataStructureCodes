@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class BFSTest {
 
     public static void main(String[] args) {
-        BreathFirstSearch bfs = new BreathFirstSearch();
+        BreadthFirstSearch bfs = new BreadthFirstSearch();
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the number of vertices: ");
         int numberOfVertices = input.nextInt();
