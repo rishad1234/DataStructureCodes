@@ -77,6 +77,7 @@ public class DFSTest {
 //        
 //        DepthFirstSearch dfs = new DepthFirstSearch();
 //        
+        System.out.println("DFS: ");
         dfs.dfs(listOfVertices);
         
     }
