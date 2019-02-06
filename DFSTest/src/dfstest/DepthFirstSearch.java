@@ -13,19 +13,17 @@ public class DepthFirstSearch {
     }
     
     
-    public void dfs(List<Vertex> vertexList){
-        
+    public void dfs(List<Vertex> vertexList){ 
         for(Vertex v : vertexList){
             if(!v.isVisited()){
                 v.setVisited(true);
                 DfsVisit(v);
             }
-        }
-        
+        }  
     }
     
     public void DfsVisit(Vertex root){
-        this.stack.add(root);
+        this.stack.push(root);
         root.setVisited(true);
         
         while(!stack.isEmpty()){
