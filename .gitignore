@@ -24,3 +24,6 @@ hs_err_pid*
 /SegmentTree/nbproject/private/
 /SegmentTree/dist/
 /SegmentTree/build/
+/SegmentTreeLazyPropagation/nbproject/private/
+/SegmentTreeLazyPropagation/build/
+/SegmentTreeLazyPropagation/dist/
